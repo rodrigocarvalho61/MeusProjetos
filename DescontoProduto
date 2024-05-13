@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+#include <conio.h>
+#include <locale.h>
+
+int main(){
+	
+	setlocale(LC_ALL, "Portuguese");
+	
+	float valorbruto_produto, valorliquido_produto, desconto, desconto_porcentagem, desconto_digitado, desconto_final;
+	int codigo_produto, opcao_desconto;
+	char nome_produto[50];
+	
+	printf("Digite o nome do produto: \n");
+	gets(nome_produto);
+	
+	printf("Produto: %s \n", nome_produto);
+	
+	printf("Digite o valor bruto do produto: \n");
+	scanf("%f", &valorbruto_produto);
+	
+	printf("O desconto sera: [1] - Porcentagem [2] - Valor digitado: ");
+	scanf("%d", &opcao_desconto);
+	
+	if (opcao_desconto == 1){
+		
+		printf("O preço do produto será calculado por meio de percentual de desconto [!] \n");
+		
+		printf("Digite o valor do desconto do produto: \n");
+		scanf("%f", &desconto_porcentagem);
+		
+		printf("Desconto (em porcentagem): %f \n", desconto_porcentagem);
+		
+		desconto = desconto_porcentagem / 100;
+
+		desconto_final = valorbruto_produto * desconto;
+		
+		valorliquido_produto = valorbruto_produto - desconto_final;
+
+		printf("Valor bruto do produto: %f \n", valorbruto_produto);
+
+		printf("Valor do desconto (porcentagem - %): %f \n", desconto);
+				
+		printf("Valor liquido do produto: %f \n", valorliquido_produto);
+		
+	} else if (opcao_desconto = 2){
+		
+		printf("O preço do produto será calculado por meio de valor de desconto digitado [!] \n");
+		
+		printf("Digite o valor do desconto do produto: \n");
+		scanf("%f", &desconto);
+		
+		valorliquido_produto = valorbruto_produto - desconto;
+		
+		printf("Valor bruto do produto: %f \n", valorbruto_produto);
+		
+		printf("Valor do desconto: %f \n", desconto);
+		
+		printf("Valor líquido do produto: %f \n", valorliquido_produto);
+		
+	} 
+	
+	return 0;
+	
+}
